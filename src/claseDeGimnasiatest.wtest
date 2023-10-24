@@ -1,0 +1,29 @@
+import Mutual.*
+
+describe "Test de clase de gimnasia"{
+	
+	const claseDeGimnasia1 = new ClaseDeGimnasia(idioma = "Ingles")
+	
+	test "El idioma de la calse de gimnasia siempre es espaniol"{
+		
+		assert.equals("Espaniol", claseDeGimnasia1.idioma())
+	}
+	
+	test "Los dias de la clase de gimnasia deben ser 1"{
+		
+		assert.equals(1, claseDeGimnasia1.dias())
+		
+	}
+	
+	test "La clase debe de implicar esfuerzo"{
+		
+		assert.that(claseDeGimnasia1.implicaEsfuerzo())
+		
+	}
+	
+	test "La clase no debe servir para broncearse"{
+		
+		assert.notThat(claseDeGimnasia1.sirveParaBroncearse())
+		
+	}
+}

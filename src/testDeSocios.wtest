@@ -1,0 +1,32 @@
+import Mutual.*
+
+describe "Test de clase de Socios"{
+	
+	const viajeDePlaya1 = new ViajeDePlaya(idioma = ["Espaniol","Aleman","Ingles"],largoDeLaPlaya = 1000)
+	const viajeDePlaya2 = new ViajeDePlaya(idioma = ["Espaniol","Aleman","Ingles"],largoDeLaPlaya = 2000)
+	
+	const roque = new Socio(actividadesQueRealizo = [viajeDePlaya1,viajeDePlaya2], maximoDeActividadesQuePuedeHacer = 2)
+	
+	test "Roque debe ser adorador del sol "{
+		
+		assert.that(roque.esAdoradorDelSol())
+	}
+	
+	test "Los dias de la clase de gimnasia deben ser 1"{
+		
+		assert.equals([viajeDePlaya2],roque.actividadesReforzadas())
+		
+	}
+	
+	test "La clase debe de implicar esfuerzo"{
+		
+		assert.that(claseDeGimnasia1.implicaEsfuerzo())
+		
+	}
+	
+	test "La clase no debe servir para broncearse"{
+		
+		assert.notThat(claseDeGimnasia1.sirveParaBroncearse())
+		
+	}
+}
