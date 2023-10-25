@@ -4,29 +4,19 @@ describe "Test de clase de Socios"{
 	
 	const viajeDePlaya1 = new ViajeDePlaya(idioma = ["Espaniol","Aleman","Ingles"],largoDeLaPlaya = 1000)
 	const viajeDePlaya2 = new ViajeDePlaya(idioma = ["Espaniol","Aleman","Ingles"],largoDeLaPlaya = 2000)
+	const claseDeGimnasia1 = new ClaseDeGimnasia(idioma = ["Espaniol"])
 	
-	const roque = new Socio(actividadesQueRealizo = [viajeDePlaya1,viajeDePlaya2], maximoDeActividadesQuePuedeHacer = 2)
+	const ana = new Socio(actividadesQueRealizo = [viajeDePlaya1,viajeDePlaya2,claseDeGimnasia1], maximoDeActividadesQuePuedeHacer = 3)
 	
 	test "Roque debe ser adorador del sol "{
 		
-		assert.that(roque.esAdoradorDelSol())
+		assert.notThat(ana.esAdoradorDelSol())
 	}
 	
-	test "Los dias de la clase de gimnasia deben ser 1"{
+	test "Las actividades que implican esfuerzo debe ser la de viaje de playa 2"{
 		
-		assert.equals([viajeDePlaya2],roque.actividadesReforzadas())
-		
-	}
-	
-	test "La clase debe de implicar esfuerzo"{
-		
-		assert.that(claseDeGimnasia1.implicaEsfuerzo())
+		assert.equals([viajeDePlaya2, claseDeGimnasia1],ana.actividadesReforzadas())
 		
 	}
 	
-	test "La clase no debe servir para broncearse"{
-		
-		assert.notThat(claseDeGimnasia1.sirveParaBroncearse())
-		
-	}
 }

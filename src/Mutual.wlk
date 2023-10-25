@@ -1,4 +1,9 @@
 class Mutual{
+	var actividades = []
+	var socios = []
+}
+
+class Actividades{
 	const idioma = []
 	
 	method idioma(){
@@ -10,9 +15,13 @@ class Mutual{
 	method sirveParaBroncearse()
 	
 	method dias()
+	
+	method atrae(unSocio){
+		unSocio.atraeActividad(self)
+	}
 }
 
-class Viaje inherits Mutual{
+class Viaje inherits Actividades{
 	
 	method esInteresante(){
 		return idioma.size() >= 2
@@ -92,7 +101,7 @@ class SalidaDeTrekking inherits Viaje{
 	}
 }
 
-class ClaseDeGimnasia inherits Mutual{
+class ClaseDeGimnasia inherits Actividades{
 	
 	override method idioma(){
 		return "Espaniol"
@@ -111,10 +120,12 @@ class ClaseDeGimnasia inherits Mutual{
 	}	
 }
 
-class Socio inherits Mutual{
+class Socio{
 	
 	const actividadesQueRealizo = []
 	const maximoDeActividadesQuePuedeHacer
+	const edad
+	const coleccionDeIdiomas = []
 	
 	method esAdoradorDelSol(){
 		return actividadesQueRealizo.all({actividad => actividad.sirveParaBroncearse()})
@@ -132,6 +143,38 @@ class Socio inherits Mutual{
 			actividadesQueRealizo.add(unaActividad)
 		}
 	}
-	
-	
 }
+
+class SocioTranquilo inherits Socio{
+	
+	method atraeActividad(unaActividad) {
+		return unaActividad.dias() >= 3
+	}
+}
+
+class SocioCoherente inherits Socio{
+	
+	method atraeActividad(unaActividad) {
+		if (self.esAdoradorDelSol()){
+			return unaActividad.sirveParaBroncearse()
+		}
+		else{
+			return unaActividad.implicaEsfuerzo()
+		}
+	}
+}
+
+class SocioRelajado inherits Socio{
+	
+	method atraeActividad(unaActividad) {
+		if (self.esAdoradorDelSol()){
+			return unaActividad.sirveParaBroncearse()
+		}
+		else{
+			return unaActividad.implicaEsfuerzo()
+		}
+	}
+}
+
+
+
