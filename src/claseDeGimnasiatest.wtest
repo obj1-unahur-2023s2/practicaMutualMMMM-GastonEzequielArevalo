@@ -1,4 +1,4 @@
-import Mutual.*
+import Actividades.*
 
 describe "Test de clase de gimnasia"{
 	
@@ -11,7 +11,7 @@ describe "Test de clase de gimnasia"{
 	
 	test "Los dias de la clase de gimnasia deben ser 1"{
 		
-		assert.equals(1, claseDeGimnasia1.dias())
+		assert.equals(1, claseDeGimnasia1.diasDeActividad())
 		
 	}
 	

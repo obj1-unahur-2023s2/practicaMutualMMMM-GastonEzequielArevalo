@@ -1,4 +1,4 @@
-import Mutual.*
+import Actividades.*
 
 describe "Test de viaje de playa"{
 	
@@ -11,7 +11,7 @@ describe "Test de viaje de playa"{
 	
 	test "La cantidad de dias de los viajes de playa deben ser 1"{
 		
-		assert.equals(1, viajeDePlaya1.dias())
+		assert.equals(1, viajeDePlaya1.diasDeActividad())
 		
 	}
 	
@@ -27,16 +27,14 @@ describe "Test de viaje de playa"{
 		
 	}
 	
-	test "El viaje debe ser interesante"{
-		
+	test "El viaje deberia ser interesante"{
 		assert.that(viajeDePlaya1.esInteresante())
-		
 	}
 }
 
 describe "Test de viaje de Excursion"{
 	
-	const viajeDeExcursion1 = new ViajeDeExcursion(idioma =["Frances","Aleman","Hungaro"],cantidadDeatracciones = 4)
+	const viajeDeExcursion1 = new ViajeDeExcursionACiudad(idioma =["Frances","Aleman","Hungaro"],cantidadDeAtraccionesAVisitar = 4)
 	
 	test "El idioma del viaje de excursion debe ser Feances, aleman y hungaro"{
 		
@@ -45,7 +43,7 @@ describe "Test de viaje de Excursion"{
 	
 	test "La cantidad de dias de los viajes de excursion deben ser 2"{
 		
-		assert.equals(2, viajeDeExcursion1.dias())
+		assert.equals(2, viajeDeExcursion1.diasDeActividad())
 		
 	}
 	
@@ -61,25 +59,23 @@ describe "Test de viaje de Excursion"{
 		
 	}
 	
-	test "El viaje debe ser interesante"{
-		
+	test "El viaje deberia ser interesante"{
 		assert.that(viajeDeExcursion1.esInteresante())
-		
 	}
 }
 
 describe "Test de viaje de Excursion Tropical"{
 	
-	const viajeDeExcursionTropical1 = new ViajeDeExcursionTropical(idioma ="Espaniol",cantidadDeatracciones = 4)
+	const viajeDeExcursionTropical1 = new ViajeDeExcursionACiudadTropical(idioma =["Frances","Aleman","Hungaro"],cantidadDeAtraccionesAVisitar = 4)
 	
 	test "El idioma del viaje de excursion tropical debe ser Italiano"{
 		
-		assert.equals("Espaniol", viajeDeExcursionTropical1.idioma())
+		assert.equals(["Frances","Aleman","Hungaro"], viajeDeExcursionTropical1.idioma())
 	}
 	
 	test "La cantidad de dias de los viajes de excursion tropical deben ser 3"{
 		
-		assert.equals(3, viajeDeExcursionTropical1.dias())
+		assert.equals(3, viajeDeExcursionTropical1.diasDeActividad())
 		
 	}
 	
@@ -95,17 +91,15 @@ describe "Test de viaje de Excursion Tropical"{
 		
 	}
 	
-	test "El viaje debe ser interesante"{
-		
+	test "El viaje no deberia ser interesante"{
 		assert.that(viajeDeExcursionTropical1.esInteresante())
-		
 	}
 	
 }
 
 describe "Test de viaje de salida de trekking"{
 	
-	const salidaDeTrekking1 = new SalidaDeTrekking(idioma =["Espaniol,Frances"],kmDeSenderos = 100,diasDeSolPorAnio = 130)
+	const salidaDeTrekking1 = new SalidaDeTrekking(idioma =["Espaniol,Frances"],kilometrosDeSendero = 100,cantidadDeDiasDeSol = 130)
 	
 	test "El idioma del la salida de trekking debe ser espaniol y frances"{
 		
@@ -114,7 +108,7 @@ describe "Test de viaje de salida de trekking"{
 	
 	test "La cantidad de dias del viaje de trekking deben ser 2"{
 		
-		assert.equals(2, salidaDeTrekking1.dias())
+		assert.equals(2, salidaDeTrekking1.diasDeActividad())
 		
 	}
 	
@@ -130,9 +124,7 @@ describe "Test de viaje de salida de trekking"{
 		
 	}
 	
-	test "El viaje no debe ser interesante"{
-		
+	test "El viaje no deberia ser interesante"{
 		assert.notThat(salidaDeTrekking1.esInteresante())
-		
 	}
 }

@@ -1,12 +1,32 @@
-import Mutual.*
+import Socios.*
+import Actividades.*
 
-describe "Test de clase de Socios"{
+describe "Test de clase de Roque"{
 	
 	const viajeDePlaya1 = new ViajeDePlaya(idioma = ["Espaniol","Aleman","Ingles"],largoDeLaPlaya = 1000)
 	const viajeDePlaya2 = new ViajeDePlaya(idioma = ["Espaniol","Aleman","Ingles"],largoDeLaPlaya = 2000)
-	const claseDeGimnasia1 = new ClaseDeGimnasia(idioma = ["Espaniol"])
 	
-	const ana = new Socio(actividadesQueRealizo = [viajeDePlaya1,viajeDePlaya2,claseDeGimnasia1], maximoDeActividadesQuePuedeHacer = 3)
+	const roque = new SocioTranquilo(actividadesQueRealizo = [viajeDePlaya1,viajeDePlaya2], maximoDeActividades = 2,edad = 21,idiomasQueHabla = "Espaniol")
+	
+	test "Roque debe ser adorador del sol "{
+		
+		assert.that(roque.esAdoradorDelSol())
+	}
+	
+	test "Las actividades que implican esfuerzo debe ser la de viaje de playa 2"{
+		
+		assert.equals([viajeDePlaya2],roque.actividadesReforzadas())
+		
+	}
+}
+
+describe "Test de clase de Ana"{
+	
+	const viajeDePlaya1 = new ViajeDePlaya(idioma = ["Espaniol","Aleman","Ingles"],largoDeLaPlaya = 1000)
+	const viajeDePlaya2 = new ViajeDePlaya(idioma = ["Espaniol","Aleman","Ingles"],largoDeLaPlaya = 2000)
+	const claseDeGimnasia1 = new ClaseDeGimnasia(idioma = ["Espaniol","Aleman","Ingles"])
+	
+	const ana = new SocioCoherente(actividadesQueRealizo = [viajeDePlaya1,viajeDePlaya2,claseDeGimnasia1], maximoDeActividades = 3,edad = 30,idiomasQueHabla = "Ingles")
 	
 	test "Roque debe ser adorador del sol "{
 		
@@ -15,7 +35,7 @@ describe "Test de clase de Socios"{
 	
 	test "Las actividades que implican esfuerzo debe ser la de viaje de playa 2"{
 		
-		assert.equals([viajeDePlaya2, claseDeGimnasia1],ana.actividadesReforzadas())
+		assert.equals([viajeDePlaya2,claseDeGimnasia1],ana.actividadesReforzadas())
 		
 	}
 	
